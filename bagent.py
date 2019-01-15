@@ -54,12 +54,20 @@ class Agent(object):
             # rollout --> tuple ( s, a, p(a|s), r, dones, V(s) ) FOR ALL AGENT
             # rollout --> last row (s, none, none, none, pending_value) FOR ALL AGENT
             state, action, log_prob, reward, done, value = rollout[i]
+            #print ('State requires_grad: ', state.requires_grad)
+            #print ('Action requires_grad: ', action.requires_grad)
+            #print ('Log Prob requires_grad: ', log_prob.requires_grad)
+            #print ('TD requires_grad: ', g_return.requires_grad)
+            #print ('Value requires_grad: ', value.requires_grad)
+            
             
             # last step - next_return = pending_value
             if i == len(rollout) - 2:
                 next_return = rollout[i+1][-1]
+            #print ('Next Return: ', next_return)
 
             state = torch.Tensor(state)
+            #print ("States :", state.size(0), " * ", state.size(1) )
             action = torch.Tensor(action)
             reward = torch.Tensor(reward).unsqueeze(1)
             done = torch.Tensor(done).unsqueeze(1)
@@ -67,6 +75,10 @@ class Agent(object):
             
             # G(t) = r + G(t+1)
             g_return = reward + GAMMA * next_return * done
+            #print (done)
+            #print ("Next Return :", next_return.size(0), " * ", next_return.size(1) )
+            #print ("Reward :", reward.size(0), " * ", reward.size(1) )
+            #print ("Done :", done.size(0), " * ", done.size(1) )
             next_return = g_return
             # g_return = reward + GAMMA * g_return*done
             
@@ -74,6 +86,8 @@ class Agent(object):
             td_error = reward + GAMMA * next_value - value
             # Compute advantages
             advantage = advantage * TAU * GAMMA * done + td_error
+            
+
             
             # Add (s, a, p(a|s), g, advantage) 
             storage[i] = [state, action, log_prob, g_return, advantage]
@@ -127,25 +141,26 @@ class Agent(object):
                 log_probs = dist.log_prob(action_samples)
                 log_probs = torch.sum(log_probs, dim=1, keepdim=True)
                 entropy = dist.entropy().mean()
-                print ('Entropy:\t', entropy)
+                #print ('Entropy:\t', entropy)
 
                 ratio = (log_probs - log_prob_samples).exp()
+                print (log_probs.requires_grad)
 
                 # Surrogate Objctive
                 obj = ratio * advantage_samples
-                print ('Sur:\t', obj)
+                #print ('Sur:\t', obj)
 
                 # Clipped Surrogate Objective
                 obj_clipped = ratio.clamp(1.0 - CLIP, 1.0 + CLIP) * advantage_samples
-                print ('Clipped:\t', obj_clipped)
+                #print ('Clipped:\t', obj_clipped)
 
                 # Compute policy loss: L = min[ r(θ), clip ( r(θ), 1-Ɛ, 1+Ɛ )*A ] - β * entropy
                 policy_loss = -torch.min(obj, obj_clipped).mean(0) - BETA * entropy
-                print ('Policy Loss: ', policy_loss)
+                #print ('Policy Loss: ', policy_loss)
 
                 # Compute value loss: L = ( V(s) - V_t )^2
                 value_loss = (return_samples - values).pow(2).mean()
-                print ('Value Loss: ', value_loss)
+                #print ('Value Loss: ', value_loss)
 
                 # Optimize
                 self.optimizer.zero_grad()
