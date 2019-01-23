@@ -33,7 +33,7 @@ The environment is considered solved, when the average (over 100 episodes) of th
       Windows (32-bit): [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Reacher/Reacher_Windows_x86.zip)
       Windows (64-bit): [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Reacher/Reacher_Windows_x86_64.zip)
 
-2. Place the file in the DRLND GitHub repository, in the `p2_continuous-control/` folder, and unzip (or decompress) the file. 
+2. Unzip, and replace the environment folder in this repository (Reacher_2020_Windowsx86_64) with the unzipped folder.
 
 #### Required Dependencies:
     Python 3.6
