@@ -49,8 +49,11 @@ Follow the instructions in `Continuous_Control.ipynb` to get started with traini
 
 ### References
 
-[Udacity Deep RL](https://github.com/udacity/deep-reinforcement-learning/tree/master/p2_continuous-control)
-[ShangtongZhang PPO Implementation](https://github.com/ShangtongZhang/DeepRL)
-[bonniesjli PPO Implementation](https://github.com/bonniesjli/PPO_Reacher)
-[Proximal Policy Optimization](https://arxiv.org/abs/1707.06347)
+    [Udacity Deep RL](https://github.com/udacity/deep-reinforcement-learning/tree/master/p2_continuous-control)
+
+    [ShangtongZhang PPO Implementation](https://github.com/ShangtongZhang/DeepRL)
+
+    [bonniesjli PPO Implementation](https://github.com/bonniesjli/PPO_Reacher)
+
+    [Proximal Policy Optimization](https://arxiv.org/abs/1707.06347)
 
