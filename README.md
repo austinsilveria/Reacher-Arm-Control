@@ -28,10 +28,10 @@ The environment is considered solved, when the average (over 100 episodes) of th
 
 1. Download the environment from one of the links below.  You need only select the environment that matches your operating system:
 
-        - Linux: [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Reacher/Reacher_Linux.zip)
-        - Mac OSX: [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Reacher/Reacher.app.zip)
-        - Windows (32-bit): [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Reacher/Reacher_Windows_x86.zip)
-        - Windows (64-bit): [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Reacher/Reacher_Windows_x86_64.zip)
+      Linux: [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Reacher/Reacher_Linux.zip)
+      Mac OSX: [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Reacher/Reacher.app.zip)
+      Windows (32-bit): [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Reacher/Reacher_Windows_x86.zip)
+      Windows (64-bit): [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Reacher/Reacher_Windows_x86_64.zip)
 
 2. Place the file in the DRLND GitHub repository, in the `p2_continuous-control/` folder, and unzip (or decompress) the file. 
 
@@ -49,11 +49,11 @@ Follow the instructions in `Continuous_Control.ipynb` to get started with traini
 
 ### References
 
-    [Udacity Deep RL](https://github.com/udacity/deep-reinforcement-learning/tree/master/p2_continuous-control)
+   [Udacity Deep RL](https://github.com/udacity/deep-reinforcement-learning/tree/master/p2_continuous-control)
 
-    [ShangtongZhang PPO Implementation](https://github.com/ShangtongZhang/DeepRL)
+   [ShangtongZhang PPO Implementation](https://github.com/ShangtongZhang/DeepRL)
 
-    [bonniesjli PPO Implementation](https://github.com/bonniesjli/PPO_Reacher)
+   [bonniesjli PPO Implementation](https://github.com/bonniesjli/PPO_Reacher)
 
-    [Proximal Policy Optimization](https://arxiv.org/abs/1707.06347)
+   [Proximal Policy Optimization](https://arxiv.org/abs/1707.06347)
 
